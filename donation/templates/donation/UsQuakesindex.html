@@ -1,16 +1,29 @@
 {% extends 'donation/UsQuakesBase.html' %}
-
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
 {% block title %}
     Funds
 {% endblock %}
 {% block bootstrapLinks %}
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js link -->
 {% endblock %}
-
 {% block body %}
+    <header>
+            <div class="row header">
+                <div class="col-md-2">
+                    <a href="" style="color:white">기부 프로그램 둘러보기</a>
+                </div>
+                <div class="col-md-8 header-logo-section">
+                    <img src="{% static "img/LogoFinal.png" %}">
+                </div>
+                <div class="col-md-2">
+                    <a href="" style="color:white">회원가입 / 로그인</a>
+                </div>
+            </div>
+        </header>
     <!-- 진행중인 기부 목록의 건수를 제공한다 -->
     <h1 style="text-align : center">진행중인 기부 #건</h1>
     <!--기부항목 목록(ex-포항 지진, 경주 지진..)이 있으면 -->
@@ -37,4 +50,7 @@
     {% else %}
         <h3 style="color:red">현재 진행 중인 지진 성금 목록이 없습니다.</h3>
     {% endif %}
+    <div class="row footer">
+        Copyright by forif
+    </div>
 {% endblock %}
