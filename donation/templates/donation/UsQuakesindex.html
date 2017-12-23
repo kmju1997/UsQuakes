@@ -3,6 +3,12 @@
 {% block title %}
     Funds
 {% endblock %}
+{% block bootstrapLinks %}
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js link -->
+{% endblock %}
 
 {% block body %}
     <!-- 진행중인 기부 목록의 건수를 제공한다 -->
@@ -11,26 +17,24 @@
     {%  if Earthquakes %}
     <ul>
         <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
-        {% for eq_id in Earthquakes %}
+        {% for Earthquake in Earthquakes %}
             <div class="column">
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="" height="400" width="200">
-              <div class="caption">
-                  <!-- 기부금액 -->
-                <h3>{{ Earthquakes.fund_total_amount }}</h3>
-                  <!-- 기부자 수 -->
-                <p> {{ Earthquakes.fund_people_num }}</p>
-                <p><a href="" class="btn btn-primary" role="button">후원하기</a></p>
-              </div>
-            </div>
-          </div>
+               <div class="col-xs-6 col-md-3">
+                   <div class="thumbnail">
+                       <img src="{{ Earthquake.img_url }}" height="300" width="200">
+                        <div class="caption">
+                            <!-- 목표금액 -->
+                            <p style="color:gray; text-align:center"> 목표금액 :{{Earthquake.target_val}}</p>
+                            <!-- 총 기부금액 -->
+                            <h3 style="text-align:center">총 기부금 : {{Earthquake.fund_total_amount}}</h3>
+                            <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
+                        </div>
+                   </div>
+               </div>
             </div>
         {% endfor %}
     </ul>
     {% else %}
         <h3 style="color:red">현재 진행 중인 지진 성금 목록이 없습니다.</h3>
     {% endif %}
-{% endblock %}
-{% block Current %}
 {% endblock %}
