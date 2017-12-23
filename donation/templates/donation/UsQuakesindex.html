@@ -6,7 +6,7 @@
 
 {% block body %}
     <!-- 진행중인 기부 목록의 건수를 제공한다 -->
-    <h1 style="text-align : center">진행중인 기부 {{ #view에서 가져온 value }}건</h1>
+    <h1 style="text-align : center">진행중인 기부 #건</h1>
     <!--기부항목 목록(ex-포항 지진, 경주 지진..)이 있으면 -->
     {%  if earthquakes %}
     <ul>
@@ -15,7 +15,7 @@
             <div class="column">
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="{{ #지진로고 }}" height="400" width="200">
+              <img src="" height="400" width="200">
               <div class="caption">
                   <!-- 기부금액 -->
                 <h3>{{ earthquakes.fund_total_amount }}</h3>
