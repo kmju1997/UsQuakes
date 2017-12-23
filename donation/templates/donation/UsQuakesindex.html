@@ -27,7 +27,7 @@
     {%  if Earthquakes %}
     <div class="container-fluid main-container">
         <div class="page-title" style="text-align : center">
-            <img src="{% static "donation/img/coins.png" %}" style="width:50px;margin:15px;">진행중인 기부 3건</div>
+            <img src="{% static "donation/img/coins.png" %}" style="width:50px;margin:15px;">진행중인 기부 {{ Earthquakes|length }} 건</div>
         <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
         {% for Earthquake in Earthquakes %}
             <div class="col-xs-6 col-md-4">
