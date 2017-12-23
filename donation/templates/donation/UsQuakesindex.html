@@ -1,4 +1,4 @@
-{% extends 'UsQuakes/UsQakesBase.html' %}
+{% extends 'donation/UsQuakesBase.html' %}
 
 {% block title %}
     Funds
@@ -8,20 +8,20 @@
     <!-- 진행중인 기부 목록의 건수를 제공한다 -->
     <h1 style="text-align : center">진행중인 기부 #건</h1>
     <!--기부항목 목록(ex-포항 지진, 경주 지진..)이 있으면 -->
-    {%  if earthquakes %}
+    {%  if Earthquakes %}
     <ul>
         <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
-        {% for eq_id in earthquakes %}
+        {% for eq_id in Earthquakes %}
             <div class="column">
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <img src="" height="400" width="200">
               <div class="caption">
                   <!-- 기부금액 -->
-                <h3>{{ earthquakes.fund_total_amount }}</h3>
+                <h3>{{ Earthquakes.fund_total_amount }}</h3>
                   <!-- 기부자 수 -->
-                <p> {{ earthquakes.fund_people_num }}</p>
-                <p><a href="{% # %}" class="btn btn-primary" role="button">후원하기</a></p>
+                <p> {{ Earthquakes.fund_people_num }}</p>
+                <p><a href="" class="btn btn-primary" role="button">후원하기</a></p>
               </div>
             </div>
           </div>
