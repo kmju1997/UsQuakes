@@ -24,8 +24,10 @@
                 <div class="col-md-8 header-logo-section">
                     <img src="{% static "donation/img/LogoFinal.png" %}" style="height: 80px">
                 </div>
-                <div class="col-md-2">s
-                    <a href="" style="color:white">회원가입 / 로그인</a>
+                <div class="col-md-2">
+                    <a href="{% url 'donation:signup' %}" style="color:white">회원가입 </a>
+                    /
+                    <a href="{% url 'donation:login' %}" style="color:white"> 로그인</a>
                 </div>
             </div>
         </header>
