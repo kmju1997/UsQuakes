@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Title{% endblock %}</title>
+    <!-- 스타일 가져오기-->
+    {% load staticfiles %}
+    </head>
+
+    <body>
+    <!-- 여기에 header 삽입!-->
+
+    {% block body %}
+
+        <!--해당 html의 body 삽입-->
+    {% endblock %}
+
+        <footer>
+            <div class = "copy text-center">
+              Copyright by forif
+            </div>
+        </footer>
+    </body>
+</html>

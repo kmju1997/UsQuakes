@@ -1,0 +1,36 @@
+{% extends 'UsQuakes/UsQakesBase.html' %}
+
+{% block title %}
+    Funds
+{% endblock %}
+
+{% block body %}
+    <!-- 진행중인 기부 목록의 건수를 제공한다 -->
+    <h1 style="text-align : center">진행중인 기부 {{ #view에서 가져온 value }}건</h1>
+    <!--기부항목 목록(ex-포항 지진, 경주 지진..)이 있으면 -->
+    {%  if earthquakes %}
+    <ul>
+        <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
+        {% for eq_id in earthquakes %}
+            <div class="column">
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="{{ #지진로고 }}" height="400" width="200">
+              <div class="caption">
+                  <!-- 기부금액 -->
+                <h3>{{ earthquakes.fund_total_amount }}</h3>
+                  <!-- 기부자 수 -->
+                <p> {{ earthquakes.fund_people_num }}</p>
+                <p><a href="{% # %}" class="btn btn-primary" role="button">후원하기</a></p>
+              </div>
+            </div>
+          </div>
+            </div>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <h3 style="color:red">현재 진행 중인 지진 성금 목록이 없습니다.</h3>
+    {% endif %}
+{% endblock %}
+{% block Current %}
+{% endblock %}
