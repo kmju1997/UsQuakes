@@ -22,7 +22,7 @@ class IndexView(generic.ListView):
 
 class DetailView (generic.DetailView):
     model = Earthquakes
-    template_name = ''
+    template_name = 'donation/detail.html'
 
 
 class UserCreate(CreateView):

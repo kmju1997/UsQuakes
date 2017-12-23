@@ -31,30 +31,32 @@
         <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
         {% for Earthquake in Earthquakes %}
             <div class="col-xs-6 col-md-4">
-                <div class="donation-card">
-                    <img src="{{ Earthquake.img_url }}">
-                    <div class="caption">
-                        <div class="eq-name">
-                            {{ Earthquake.eq_name }}
-                        </div>
-                        <div class="eq-region">
-                            {{ Earthquake.eq_region }}
-                        </div>
-                        <div class="row eq-info">
-                            <div class="col-md-6">
-                                <div class="eq-info-title">모인 금액</div>
-                                <div class="eq-info-content">{{ Earthquake.fund_total_amount }} 원</div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="eq-info-title">후원자</div>
-                                <div class="eq-info-content">{{ Earthquake.fund_people_num }} 명</div>
-                            </div>
-                        </div>
-                        <div class="eq-donation-percent">
 
+                    <div class="donation-card">
+                        <a href="{% url 'donation:detail' Earthquake.eq_id %}">
+                        <img src="{{ Earthquake.img_url }}" style="width:100%">
+                        </a>
+                        <div class="caption">
+                            <div class="eq-name">
+                                {{ Earthquake.eq_name }}
+                            </div>
+                            <div class="eq-region">
+                                {{ Earthquake.eq_region }}
+                            </div>
+                            <div class="row eq-info">
+                                <div class="col-md-6">
+                                    <div class="eq-info-title">모인 금액</div>
+                                    <div class="eq-info-content">{{ Earthquake.fund_total_amount }} 원</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="eq-info-title">후원자</div>
+                                    <div class="eq-info-content">{{ Earthquake.fund_people_num }} 명</div>
+                                </div>
+                            </div>
+                            <div class="eq-donation-percent">
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         {% endfor %}
     </div>

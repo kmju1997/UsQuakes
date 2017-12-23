@@ -18,6 +18,10 @@
     box-shadow: 0 0 6px rgba(0,0,0,.1);
 }
 
+.donation-card:hover {
+    box-shadow: 0 0 6px rgba(0,0,0,.4);
+}
+
 .donation-card > img {
     width: 100%;
 }

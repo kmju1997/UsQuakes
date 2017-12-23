@@ -28,23 +28,25 @@
         </header>
 
     <div class = "container">
-        <div class="column">
-            <div class="eq-img">
-                <img src="{{ Earthquake.img_url }}">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ earthquakes.img_url }}" style="width:100%">
             </div>
-            <div class="row">
-                <h1>{{ Earthquake.img}}</h1>
-                <h3>모금율%</h3>
-            </div>
-            <div class="row">
-                <p>{{ Earthquake.fund_total_amount}}/{{ Earthquake.target_val}}</p>
-            </div>
-            <div class="row">
-                <div class="description">
-                    <p>{{ Earthquakes.description}}</p>
+            <div class="col-md-6">
+                <div class="row">
+                    <h1>{{ earthquakes.eq_name}}</h1>
+                    <h3>모금율 {% widthratio earthquakes.fund_total_amount earthquakes.target_val 100 %}%</h3>
                 </div>
+                <div class="row">
+                    <p>{{ earthquakes.fund_total_amount}}/{{ earthquakes.target_val}}</p>
+                </div>
+                <div class="row">
+                    <div class="description">
+                        <p>{{ earthquakes.description}}</p>
+                    </div>
+                </div>
+                <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
             </div>
-            <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
         </div>
     </div>
 
