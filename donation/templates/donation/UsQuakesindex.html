@@ -1,9 +1,6 @@
-{% extends 'donation/UsQuakesBase.html' %}
 {% load staticfiles %}
-<link rel="stylesheet" href="{% static 'main.css' %}">
-{% block title %}
-    Funds
-{% endblock %}
+<link rel="stylesheet" href="{% static 'donation/css/index.css' %}">
+<link rel="stylesheet" href="{% static 'donation/css/main.css' %}">
 {% block bootstrapLinks %}
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -12,41 +9,44 @@
 {% endblock %}
 {% block body %}
     <header>
-            <div class="row header">
-                <div class="col-md-2">
-                    <a href="" style="color:white">기부 프로그램 둘러보기</a>
-                </div>
-                <div class="col-md-8 header-logo-section">
-                    <img src="{% static "img/LogoFinal.png" %}">
-                </div>
-                <div class="col-md-2">
-                    <a href="" style="color:white">회원가입 / 로그인</a>
-                </div>
+        <div class="row header">
+            <div class="col-md-2">
+                <a href="" style="color:white">기부 프로그램 둘러보기</a>
             </div>
-        </header>
+            <div class="col-md-8 header-logo-section">
+                <img src="{% static "donation/img/LogoFinal.png" %}" style="height:80px">
+            </div>
+            <div class="col-md-2">
+                <a href="" style="color:white">회원가입 / 로그인</a>
+            </div>
+        </div>
+    </header>
     <!-- 진행중인 기부 목록의 건수를 제공한다 -->
-    <h1 style="text-align : center">진행중인 기부 #건</h1>
     <!--기부항목 목록(ex-포항 지진, 경주 지진..)이 있으면 -->
     {%  if Earthquakes %}
-    <ul>
+    <div class="container-fluid main-container">
+        <h1 style="text-align : center">진행중인 기부 #건</h1>
         <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
         {% for Earthquake in Earthquakes %}
-            <div class="column">
-               <div class="col-xs-6 col-md-3">
-                   <div class="thumbnail">
-                       <img src="{{ Earthquake.img_url }}" height="300" width="200">
-                        <div class="caption">
-                            <!-- 목표금액 -->
-                            <p style="color:gray; text-align:center"> 목표금액 :{{Earthquake.target_val}}</p>
-                            <!-- 총 기부금액 -->
-                            <h3 style="text-align:center">총 기부금 : {{Earthquake.fund_total_amount}}</h3>
-                            <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
+            <div class="col-xs-6 col-md-4">
+                <div class="donation-card">
+                    <img src="{{ Earthquake.img_url }}">
+                    <div class="caption">
+                        <div class="eq-name">
+                            {{ Earthquake.eq_name }}
                         </div>
-                   </div>
-               </div>
+                        <div class="eq-region">
+                            {{ Earthquake.eq_region }}
+                        </div>
+                        <div class="eq-donation-amount">
+                            {{ Earthquake.fund_total_amount}} / {{ Earthquake.target_val }}
+                        </div>
+                        <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
+                    </div>
+                </div>
             </div>
         {% endfor %}
-    </ul>
+    </div>
     {% else %}
         <h3 style="color:red">현재 진행 중인 지진 성금 목록이 없습니다.</h3>
     {% endif %}
