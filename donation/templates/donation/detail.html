@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'donation/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'donation/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'donation/css/main.css' %}">
+    {% block bootstrapLinks %}
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js link -->
+    {% endblock %}
+    {% block body %}
+        <header>
+            <div class="row header">
+                <div class="col-md-2">
+                    <a href="" style="color:white">기부 프로그램 둘러보기!</a>
+                </div>
+                <div class="col-md-8 header-logo-section">
+                    <img src="{% static "donation/img/LogoFinal.png" %}" style="height:80px">
+                </div>
+                <div class="col-md-2">
+                    <a href="" style="color:white">회원가입 / 로그인</a>
+                </div>
+            </div>
+        </header>
+
+    <div class = "container">
+        <div class="column">
+            <div class="eq-img">
+                <img src="{{ Earthquake.img_url }}">
+            </div>
+            <div class="row">
+                <h1>{{ Earthquake.img}}</h1>
+                <h3>모금율%</h3>
+            </div>
+            <div class="row">
+                <p>{{ Earthquake.fund_total_amount}}/{{ Earthquake.target_val}}</p>
+            </div>
+            <div class="row">
+                <div class="description">
+                    <p>{{ Earthquakes.description}}</p>
+                </div>
+            </div>
+            <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
+        </div>
+    </div>
+
+
+
+    <div class="row footer">
+        Copyright by forif
+    </div>
+    {% endblock %}
+</html>
