@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js link -->
+    <script src="https://use.fontawesome.com/eb0cb4695a.js"></script>
 {% endblock %}
 {% block body %}
     <header>
@@ -25,7 +26,8 @@
     <!--기부항목 목록(ex-포항 지진, 경주 지진..)이 있으면 -->
     {%  if Earthquakes %}
     <div class="container-fluid main-container">
-        <h1 style="text-align : center">진행중인 기부 #건</h1>
+        <div class="page-title" style="text-align : center">
+            <img src="{% static "donation/img/coins.png" %}" style="width:50px;margin:15px;">진행중인 기부 {{ Earthquakes|length }} 건</div>
         <!-- 각 기부항목 목록 중 기부항목 하나하나 -->
         {% for Earthquake in Earthquakes %}
             <div class="col-xs-6 col-md-4">
@@ -38,10 +40,19 @@
                         <div class="eq-region">
                             {{ Earthquake.eq_region }}
                         </div>
-                        <div class="eq-donation-amount">
-                            {{ Earthquake.fund_total_amount}} / {{ Earthquake.target_val }}
+                        <div class="row eq-info">
+                            <div class="col-md-6">
+                                <div class="eq-info-title">모인 금액</div>
+                                <div class="eq-info-content">{{ Earthquake.fund_total_amount }} 원</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="eq-info-title">후원자</div>
+                                <div class="eq-info-content">{{ Earthquake.fund_people_num }} 명</div>
+                            </div>
                         </div>
-                        <p><a href="" class="btn btn-primary" role="button" >후원하기</a></p>
+                        <div class="eq-donation-percent">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,6 +62,6 @@
         <h3 style="color:red">현재 진행 중인 지진 성금 목록이 없습니다.</h3>
     {% endif %}
     <div class="row footer">
-        Copyright by forif
+        @Copyright by forif
     </div>
 {% endblock %}
